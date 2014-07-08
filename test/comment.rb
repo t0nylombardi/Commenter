@@ -1,3 +1,9 @@
+# test/comment.rb
+# $Id$
+
+# test/comment.rb
+# $Id$
+
 #!/usr/bin/env ruby
 # comment_rails.rb
 #

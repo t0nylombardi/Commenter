@@ -1,0 +1,56 @@
+<%= render :partial => 'shared/header' %>
+	 
+<div div="container">	 
+	<div id="sign-up" class="row">	 
+		<div class="large-9 columns" role="content">
+			<article>
+				<h1>Connect with friends and the world around you on Viitup. </h1>
+				<div class="row">
+					<div class="large-6 columns">
+						<div id="connect-ul">
+							<ul class="fa-ul">
+							  <li><i class="fa-li fa fa-video-camera"></i>Connect with your friends and other fascinating people using video</li>
+							  <li><i class="fa-li fa fa-spin fa-refresh"></i>Get live updates on the things that interest you.</li>
+							  <li><i class="fa-li fa fa-users"></i>Gather Friends in group conversations</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>
+	 
+	 
+		<aside class="large-3 columns">
+			<h3>Sign Up</h3>
+			<%= form_for @users, :url => signup_path, :remote => true do |f| %>
+				<input id="firstName" 	type="text" name="firstname" 	style="width:150px;" 	placeholder="First name"/>
+				<input id="lastName" 		type="text" name="lastname" 	style="width:150px;" 	placeholder="Last name"/><br/>
+				<input id="email" 			type="text" name="email" 			style="width:315px;" 	placeholder="Email Address"/><br/>
+				<input id="reEmail" 		type="text" name="reEmail" 		style="width:315px;" 	placeholder="Re-enter Email"/><br/>
+				<input id="inviteCode" 	type="text" name="inviteCode" style="width:315px;" 	placeholder="Invite Code"/><br/>
+				<h5><strong>Birthday</strong></h5>
+				<%= select_tag :month, options_for_select(@months) %>
+				<%= select_tag :day,  options_for_select(@day) %> 
+				<%= select_tag :year, options_for_select(@year) %>
+
+				<%#= select_year(Date.today, :start_year => Time.now.year, :end_year => Time.now.year - 110, :selected => "Year", :prompt => 'Year') %>
+
+				<div id="signup_sex">
+					<p>
+						<%= radio_button_tag :signup, 'female', false, :id => 'singup_female' %> <strong>Female</strong>  
+					</p>
+					<p>
+						<%= radio_button_tag :signup, 'male', false %> <strong>Male</strong> 
+					</p>
+				</div>
+				</form>
+				<p class="terms">By clicking Sign Up, you agree to our <a href="#">Terms</a> and that you have read our <a href="#">Data Use Policy</a>, including our <a href="#">Cookie Use</a>.</p>
+				<%= f.submit "Sign Up", :id => "submit", class: "btn btn-primary" %>
+			<% end %>	
+		</aside>
+	</div>
+
+</div>	 
+<%= video_tag ["intro.webm","intro.mp4"], :id =>"bgvid", :autoplay => true, :loop =>true, :poster => "front.png" %>	 
+
+<%= render :partial => 'shared/footer' %>
